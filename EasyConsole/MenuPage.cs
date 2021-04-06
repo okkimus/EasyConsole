@@ -7,10 +7,7 @@
         public MenuPage(string title, Program program, params Option[] options)
             : base(title, program)
         {
-            Menu = new Menu();
-
-            foreach (var option in options)
-                Menu.Add(option);
+            InitializeMenu(options);
         }
 
         public override void Display()
@@ -21,6 +18,14 @@
                 Menu.Add("Go back", () => { Program.NavigateBack(); });
 
             Menu.Display();
+        }
+
+        protected void InitializeMenu(Option[] options)
+        {
+            Menu = new Menu();
+
+            foreach (var option in options)
+                Menu.Add(option);
         }
     }
 }

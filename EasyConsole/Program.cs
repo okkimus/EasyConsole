@@ -87,10 +87,20 @@ namespace EasyConsole
             if (!Pages.TryGetValue(pageType, out nextPage))
                 throw new KeyNotFoundException("The given page \"{0}\" was not present in the program".Format(pageType));
 
+            HandleDynamicMenu(nextPage, pageType);
+            
             // enter the new page
             History.Push(nextPage);
 
             return CurrentPage as T;
+        }
+
+        private void HandleDynamicMenu(Page nextPage, Type pageType)
+        {
+            if (nextPage is DynamicMenuPage)
+            {
+                (Pages[pageType] as DynamicMenuPage)?.UpdateMenuItems();
+            }
         }
 
         public T NavigateTo<T>() where T : Page
@@ -106,6 +116,8 @@ namespace EasyConsole
         {
             History.Pop();
 
+            HandleDynamicMenu(CurrentPage, CurrentPage.GetType());
+            
             Console.Clear();
             CurrentPage.Display();
             return CurrentPage;
