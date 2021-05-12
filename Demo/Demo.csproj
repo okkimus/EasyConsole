@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Demo</RootNamespace>
     <AssemblyName>Demo</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DemoProgram.cs" />
+    <Compile Include="Models\Person.cs" />
     <Compile Include="Pages\InputPage.cs" />
     <Compile Include="Pages\MainPage.cs" />
     <Compile Include="Pages\Page1A.cs" />
@@ -51,6 +52,7 @@
     <Compile Include="Pages\Page1B.cs" />
     <Compile Include="Pages\Page2.cs" />
     <Compile Include="Pages\Page1.cs" />
+    <Compile Include="Providers\MenuProvider.cs" />
     <Compile Include="Runner.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

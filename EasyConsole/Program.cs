@@ -63,6 +63,17 @@ namespace EasyConsole
             else
                 Pages.Add(pageType, page);
         }
+        
+        
+        public void AddPage<T>(DynamicPage<T> page) where T : PageParam 
+        {
+            Type pageType = page.GetType();
+
+            if (Pages.ContainsKey(pageType))
+                Pages[pageType] = page;
+            else
+                Pages.Add(pageType, page);
+        }
 
         public void NavigateHome()
         {

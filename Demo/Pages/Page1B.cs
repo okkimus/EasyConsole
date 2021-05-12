@@ -2,11 +2,14 @@
 
 namespace Demo.Pages
 {
-    class Page1B : Page
+    class Page1B : DynamicPage<double>
     {
-        public Page1B(Program program)
-            : base("Page 1B", program)
+        private readonly double _person;
+        
+        public Page1B(Program program, double person)
+            : base("Person", program)
         {
+            _person = person;
         }
 
         public override void Display()
